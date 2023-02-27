@@ -4,26 +4,26 @@
     <input v-model="newUser.name" type="text" />
     <p v-if="newUser.name.length === 0">Cannot be empty</p>
     <select v-model="newUser.role">
-        <option v-for="option in options" :value="option.value">
-          {{ option.text }}
-        </option>
+      <option v-for="option in options" :value="option.value">
+        {{ option.text }}
+      </option>
     </select>
     <UserButton v-bind:variant="''" @click="addNewUser" />
     <h1>{{ userList }}</h1>
-    <hr>
+    <hr />
     <h2>Batch</h2>
-    <BatchComponent :username="newUser.name" :role="newUser.role" />
+    <BadgeComponent :role="newUser.role" />
   </div>
 </template>
 
 <script>
 import UserButton from "./UserButton.vue";
-import BatchComponent from "./BatchComponent.vue";
+import BadgeComponent from "./BadgeComponent.vue";
 import { defineComponent } from "vue";
 
 export default defineComponent({
   components: {
-    BatchComponent,
+    BadgeComponent,
     UserButton,
   },
   data: () => ({
@@ -40,9 +40,9 @@ export default defineComponent({
       },
     ],
     options: [
-      { text: "Intructor", value: "Instructor"},
-      { text: "Student", value: "Student"},
-      { text: "Assistant", value: "Assistant"},
+      { text: "Intructor", value: "Instructor" },
+      { text: "Student", value: "Student" },
+      { text: "Assistant", value: "Assistant" },
     ],
   }),
   // watch: {
@@ -52,7 +52,7 @@ export default defineComponent({
   // },
   computed: {
     inputUpperCase() {
-      console.log("computed")
+      console.log("computed");
       return this.input.toUpperCase();
     },
   },
